@@ -10,7 +10,7 @@
     </parent>
 
     <groupId>com.max</groupId>
-    <artifactId>max-easyrpc</artifactId>
+    <artifactId>max-easy-rpc</artifactId>
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
