@@ -27,7 +27,7 @@
 
             <dependency>
                 <groupId>com.max</groupId>
-                <artifactId>max-easy-rpc</artifactId>
+                <artifactId>max-core-rpc</artifactId>
                 <version>1.0-SNAPSHOT</version>
             </dependency>
             <dependency>

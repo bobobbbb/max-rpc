@@ -1,6 +1,7 @@
 package com.max.example.consumer;
 import com.max.example.common.model.User;
 import com.max.example.common.service.UserService;
+import com.max.maxrpc.proxy.ServiceProxyFactory;
 
 /**
  * 简易服务消费者示例
@@ -8,10 +9,11 @@ import com.max.example.common.service.UserService;
 public class EasyConsumerExample {
 
     public static void main(String[] args) {
-        // todo 需要获取 UserService 的实现类对象
-        UserService userService = null;
+        // 动态代理
+//        UserService userService=new UserServiceProxy();
+        UserService userService = ServiceProxyFactory.getProxy(UserService.class);
         User user = new User();
-        user.setName("yupi");
+        user.setName("max");
         // 调用
         User newUser = userService.getUser(user);
         if (newUser != null) {
