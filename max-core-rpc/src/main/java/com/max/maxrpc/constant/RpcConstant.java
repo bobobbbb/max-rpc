@@ -8,7 +8,6 @@ package com.max.maxrpc.constant;
  * @from <a href="https://yupi.icu">编程导航学习圈</a>
  */
 public interface RpcConstant {
-
     /**
      * 默认配置文件加载前缀
      */
