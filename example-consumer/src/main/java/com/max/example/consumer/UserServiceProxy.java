@@ -16,7 +16,7 @@ import java.io.IOException;
 public class UserServiceProxy implements UserService {
 
     @Override
-    public User getUser(User user) {
+    public User getUser(User user){
         // 指定序列化器
         Serializer serializer = new JdkSerializer();
 
