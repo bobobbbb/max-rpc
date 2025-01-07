@@ -1,6 +1,9 @@
 package com.max.maxrpc;
+import com.max.maxrpc.config.RegistryConfig;
 import com.max.maxrpc.config.RpcConfig;
 import com.max.maxrpc.constant.RpcConstant;
+import com.max.maxrpc.registry.Registry;
+import com.max.maxrpc.registry.RegistryFactory;
 import com.max.maxrpc.utils.ConfigUtils;
 import lombok.extern.slf4j.Slf4j;
 
@@ -18,10 +21,21 @@ public class RpcApplication {
      *
      * @param newRpcConfig
      */
+    /**
+     * 框架初始化，支持传入自定义配置
+     *
+     * @param newRpcConfig
+     */
     public static void init(RpcConfig newRpcConfig) {
         rpcConfig = newRpcConfig;
         log.info("rpc init, config = {}", newRpcConfig.toString());
+        // 注册中心初始化
+        RegistryConfig registryConfig = rpcConfig.getRegistryConfig();
+        Registry registry = RegistryFactory.getInstance(registryConfig.getRegistry());
+        registry.init(registryConfig);
+        log.info("registry init, config = {}", registryConfig);
     }
+
     /**
      * 初始化
      */

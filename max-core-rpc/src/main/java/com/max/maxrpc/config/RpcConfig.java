@@ -9,6 +9,7 @@ import lombok.Data;
  */
 @Data
 public class RpcConfig {
+    private RegistryConfig registryConfig=new RegistryConfig();
     /**
      * 名称
      */
@@ -32,5 +33,6 @@ public class RpcConfig {
     private boolean mock=false;
 
     private String serializer= SerializerKeys.JDK;
+
 
 }

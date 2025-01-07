@@ -1,5 +1,6 @@
 package com.max.maxrpc.model;
 
+import com.max.maxrpc.constant.RpcConstant;
 import com.max.maxrpc.serializer.Serializer;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -19,4 +20,6 @@ public class RpcRequest implements Serializable {
     private  Class<?>[] parameterTypes;
 
     private  Object[] args;
+
+    private String serviceVersion= RpcConstant.DEFAULT_SERVICE_VERSION;
 }
