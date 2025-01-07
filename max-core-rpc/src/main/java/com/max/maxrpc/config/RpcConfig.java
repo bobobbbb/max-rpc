@@ -1,5 +1,7 @@
 package com.max.maxrpc.config;
 
+import com.max.maxrpc.serializer.Serializer;
+import com.max.maxrpc.serializer.SerializerKeys;
 import lombok.Data;
 
 /**
@@ -7,12 +9,10 @@ import lombok.Data;
  */
 @Data
 public class RpcConfig {
-
     /**
      * 名称
      */
     private String name = "max-rpc";
-
     /**
      * 版本号
      */
@@ -30,5 +30,7 @@ public class RpcConfig {
 
 
     private boolean mock=false;
+
+    private String serializer= SerializerKeys.JDK;
 
 }
