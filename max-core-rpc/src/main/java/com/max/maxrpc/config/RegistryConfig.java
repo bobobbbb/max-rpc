@@ -6,7 +6,7 @@ import lombok.Data;
  * RPC 框架注册中心配置
  */
 @Data
-public class RegistryConfig {
+public class  RegistryConfig {
 
     /**
      * 注册中心类别
@@ -16,7 +16,7 @@ public class RegistryConfig {
     /**
      * 注册中心地址
      */
-    private String address = "http://49.232.136.246:2380";
+    private String address = "http://8.152.7.205/:2380";
 
     /**
      * 用户名

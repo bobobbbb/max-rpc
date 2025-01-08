@@ -30,17 +30,18 @@ public class ProviderExample {
         // 注册服务到注册中心
         RpcConfig rpcConfig = RpcApplication.getRpcConfig();
         RegistryConfig registryConfig = rpcConfig.getRegistryConfig();
+        //在这里使用loadspi加载custom中的etcdregistry类，并在这里取到；
         Registry registry = RegistryFactory.getInstance(registryConfig.getRegistry());
         ServiceMetaInfo serviceMetaInfo = new ServiceMetaInfo();
         serviceMetaInfo.setServiceName(serviceName);
         serviceMetaInfo.setServiceHost(rpcConfig.getServerHost());
         serviceMetaInfo.setServicePort(rpcConfig.getServerPort());
         try {
+            //调用的是etcd的注册方法 将这个service的信息注册进去etcd；
             registry.register(serviceMetaInfo);
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
-
         // 启动 web 服务
         HttpServer httpServer = new VertxHttpServer();
         httpServer.doStart(RpcApplication.getRpcConfig().getServerPort());

@@ -13,6 +13,8 @@ import java.util.List;
  * @from <a href="https://yupi.icu">编程导航知识星球</a>
  */
 public interface Registry {
+    //watch方法
+    void watch(String serviceNodekey);
 
     /**
      * 初始化
@@ -47,4 +49,6 @@ public interface Registry {
      * 服务销毁
      */
     void destroy();
+
+    void heartBeat();
 }
