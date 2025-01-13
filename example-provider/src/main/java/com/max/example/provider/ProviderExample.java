@@ -38,7 +38,6 @@ public class ProviderExample {
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
-
         // 启动 TCP 服务
         VertxTcpServer vertxTcpServer = new VertxTcpServer();
         vertxTcpServer.doStart(8080);

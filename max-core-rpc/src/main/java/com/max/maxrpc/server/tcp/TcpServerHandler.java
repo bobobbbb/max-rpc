@@ -1,10 +1,11 @@
 package com.max.maxrpc.server.tcp;
-
 import com.max.maxrpc.model.RpcRequest;
 import com.max.maxrpc.model.RpcResponse;
 import com.max.maxrpc.protocol.ProtocolMessage;
 import com.max.maxrpc.protocol.ProtocolMessageTypeEnum;
 import com.max.maxrpc.registry.LocalRegistry;
+import com.max.maxrpc.server.tcp.ProtocolMessageDecoder;
+import com.max.maxrpc.server.tcp.ProtocolMessageEncoder;
 import io.vertx.core.Handler;
 import io.vertx.core.buffer.Buffer;
 import io.vertx.core.net.NetSocket;
@@ -13,11 +14,13 @@ import java.io.IOException;
 import java.lang.reflect.Method;
 
 public class TcpServerHandler implements Handler<NetSocket> {
-
+//    读取客户端发送的请求：当 netSocket.handler(tcpBufferHandlerWrapper) 被调用时，
+//    netSocket 会从客户端接收数据，交给 TcpBufferHandlerWrapper 进行处理。
+//    将响应数据发送给客户端：在处理完请求后，使用 netSocket.write(encode) 将响应数据发送回客户端。
     @Override
     public void handle(NetSocket netSocket) {
         // 处理连接
-        netSocket.handler(buffer -> {
+        TcpBufferHandlerWrapper tcpBufferHandlerWrapper=new TcpBufferHandlerWrapper(buffer -> {
             // 接受请求，解码
             ProtocolMessage<RpcRequest> protocolMessage;
             try {
@@ -56,5 +59,6 @@ public class TcpServerHandler implements Handler<NetSocket> {
                 throw new RuntimeException("协议消息编码错误");
             }
         });
+        netSocket.handler(tcpBufferHandlerWrapper);
     }
 }
