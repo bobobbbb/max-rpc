@@ -1,6 +1,6 @@
 package com.max.maxrpc.config;
 
-import com.max.maxrpc.serializer.Serializer;
+import com.max.maxrpc.loadbalancer.LoadBalancerKeys;
 import com.max.maxrpc.serializer.SerializerKeys;
 import lombok.Data;
 
@@ -33,6 +33,8 @@ public class RpcConfig {
     private boolean mock=false;
 
     private String serializer= SerializerKeys.JDK;
+
+    private String loadBalancer= LoadBalancerKeys.RANDOM;
 
 
 }

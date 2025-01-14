@@ -1,0 +1,3 @@
+roundRobin=com.max.maxrpc.loadbalancer.RoundRobinLoadBalancer
+random=com.max.maxrpc.loadbalancer.RandomLoadBalancer
+consistentHash=com.max.maxrpc.loadbalancer.ConsistentHashLoadBalancer
