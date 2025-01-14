@@ -1,0 +1,2 @@
+no=com.max.maxrpc.fault.retry.NoRetryStrategy
+fixedInterval=com.max.maxrpc.fault.retry.FixedIntervalRetryStrategy
