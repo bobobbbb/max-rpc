@@ -1,6 +1,7 @@
 package com.max.maxrpc.config;
 
 import com.max.maxrpc.fault.retry.RetryStrategyKeys;
+import com.max.maxrpc.fault.tolerant.TolerantStrategyKeys;
 import com.max.maxrpc.loadbalancer.LoadBalancerKeys;
 import com.max.maxrpc.serializer.SerializerKeys;
 import lombok.Data;
@@ -38,5 +39,7 @@ public class RpcConfig {
     private String loadBalancer= LoadBalancerKeys.RANDOM;
 
     private String retryStrategy= RetryStrategyKeys.NO;
+
+    private String tolerantStrategy= TolerantStrategyKeys.FAIL_FAST;
 
 }
